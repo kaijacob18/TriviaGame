@@ -1,12 +1,11 @@
 // Make sure jQuery working for start button
 
 $("#Start").on("click", function () {
-    for(var i = 0; i<question.length;i++){
-        $("#trivAns").append("<h2>" +questionAnswers[i].question<+ "</h2>")
-    for(var j = 0; j<questionAnswers[i].answers.length; j++){
-        $("#trivAns").append(<input type = "checkbox"></input>)
-    }
-    }
+   $("#start").remove();
+   game.loadQuestion
+    })
+$(document).on("click", ".answer-button",function(e){
+    game.clicked(e);
 })
 
 var questionAnswers = [{
@@ -82,25 +81,54 @@ var game = {
         }
     },
     loadQuestion: function(){
+        timer = setInterval(game.countdown, 1000);
+        $("#subwrapper").html("<h2>"+questionAnswers[game.currentQuestion].question+"</h2>");
+        for(var i=0;i<questions[game.currentQuestion].answers.length;i++){
+            $("#subwrapper").append("<button class= answer-button" id="button-"+i+" data-name="+questionAnswers[game.currentQuestion].answers[i]+)
+
+        }
 
     },
     nextQuestion: function(){
-
+        game.counter= 30;
+        $("#counter").html(game.counter);
+        game.currentQuestion++;
+        game.loadQuestion();
     },
     timeOut: function(){
-
+clearInterval(timer);
+$("#subwrapper").html("<h2>TIME UP </h2>");
+$("subwrapper").append("<h3>Right Answer:"+questionAnswers[game.currentQuestion].rightAnswer+"</h3>");
+if(game.currentQuestion==questionAnswers.length-1){
+    setTimeout(game.results,3*1000);
+}else {
+    setTimeout(game.nextQuestion,3*1000);
+}
     },
     results: function(){
 
     },
     clicked: function(){
+        clearInterval(timer);
+        if($(e.target).data("name")==questionAnswers[game.currentQuestion].rightAnswer){
+            game.answerCorrect();
+
+        }else{
+            game.answerCorrect();
+        }
 
     },
     answerCorrect: function(){
-
+        clearInterval(timer);
+        game.correct++;
+        $("#subwrapper").html("<h2> You are Correct!</h2>");
+        if(game.currentQuestion==questionAnswers.length-1){
+            setTimeout(game.results,3*1000);
+        }else
+        setTimeout(game.nextQuestion,3*1000);
     },
     answerIncorrect: function(){
-
+clearInterval(timer);
     },
     reset: function(){
 

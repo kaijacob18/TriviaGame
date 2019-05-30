@@ -2,15 +2,18 @@ body{
     background-image: url(../images/sports.jpeg);
    
 }
-button{
+#start{
     margin-left: auto;
     margin-right: auto;
+    size: 100,20;
 }
 .jumbotron{
     background:rgba(0,0,0,.0001);
     
 }
 h1.display-4{
-    background-color: rgba(165,101,42,0.966);
+    color: rgba(165,101,42,0.966);
 }
+
+
 
