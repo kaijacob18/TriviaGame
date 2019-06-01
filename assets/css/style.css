@@ -1,19 +1,38 @@
 body{
+    margin: 0;
+    padding: 0;
     background-image: url(../images/sports.jpeg);
-   
 }
-#start{
-    margin-left: auto;
-    margin-right: auto;
-    size: 100,20;
+.wrapper,
+.subwrapper,
+.sec1{
+    height:300px;
+    width:100%;
 }
-.jumbotron{
-    background:rgba(0,0,0,.0001);
-    
+.wrapper{
+    background: #262626;
+    position: relative;
 }
-h1.display-4{
-    color: rgba(165,101,42,0.966);
+.subwrapper{
+    background: #3bffb4;
+    position: relative;
+}
+.sec1{
+    background:#262626;
+    position: relative;
 }
 
+h1{
+    color:white;
+    position: relative;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+button{
+    margin-left: 50%;
+}
+#Start{
+    color: white;
+    background-color: black;
 
-
+}
